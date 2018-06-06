@@ -21,6 +21,7 @@
     "chai": "^4.1.2",
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
+    "marked": "^0.4.0",
     "vue-template-compiler": "^2.5.16"
   },
   "browserslist": [
