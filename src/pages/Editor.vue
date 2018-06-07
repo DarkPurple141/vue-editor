@@ -1,6 +1,6 @@
 <template>
   <main id="editor">
-     <EditorWindow/>
+     <EditorWindow :file="file"/>
   </main>
 </template>
 
@@ -11,6 +11,11 @@ export default {
   name: 'Editor',
   components: {
      EditorWindow
+  },
+  computed: {
+     file() {
+        return this.$store.state.file
+     }
   }
 }
 </script>

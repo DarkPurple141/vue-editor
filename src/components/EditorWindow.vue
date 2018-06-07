@@ -2,9 +2,11 @@
    <div class="panes">
       <EditorPane>
          <EditorControlBar slot="controls"/>
-         <EditPadContainer slot="main"/>
+         <EditPadContainer :file="file" slot="main"/>
       </EditorPane>
-      <EditorPane/>
+      <EditorPane>
+         <EditRenderArea slot="main" :file="rendered"/>
+      </EditorPane>
    </div>
 </template>
 
@@ -12,10 +14,27 @@
 import EditorPane from './EditorPane.vue'
 import EditorControlBar from './EditorControlBar.vue'
 import EditPadContainer from './EditPadContainer.vue'
+import EditRenderArea from './EditRenderArea.vue'
 
 export default {
    name: 'EditorWindow',
-   components: { EditorPane, EditorControlBar, EditPadContainer }
+   components: {
+      EditorPane,
+      EditorControlBar,
+      EditPadContainer,
+      EditRenderArea
+   },
+   props: {
+      file: String
+   },
+   computed: {
+      rendered() {
+         return {
+            content: this.file,
+            ftype: 'md'
+         }
+      }
+   }
 }
 </script>
 

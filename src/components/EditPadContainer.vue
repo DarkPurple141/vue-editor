@@ -1,7 +1,7 @@
 <template lang="html">
    <div class="texteditor-frame">
       <EditorSidebar :rows="rows"/>
-      <EditorTextarea :rows="rows"/>
+      <EditorTextarea :file="file" :rows="rows"/>
    </div>
 </template>
 
@@ -10,6 +10,9 @@ import EditorTextarea from './EditorTextarea'
 import EditorSidebar from './EditorSidebar'
 
 export default {
+   props: {
+      file: String
+   },
    components: { EditorSidebar, EditorTextarea },
    data() {
       return {

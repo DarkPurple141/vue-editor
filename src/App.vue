@@ -11,6 +11,10 @@
    padding: 0;
 }
 
+input, textarea, select, button {
+   font-family: inherit;
+}
+
 #app {
   font-size: 16px;
   line-height: 1.5;
