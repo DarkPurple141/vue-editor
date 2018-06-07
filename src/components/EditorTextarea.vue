@@ -30,8 +30,6 @@ export default {
          let index = e.target.selectionEnd
          this.edit =
             this.edit.substring(0, index) + '   ' + this.edit.substring(index, this.length)
-
-         console.log(this.edit)
       }
    }
 }
