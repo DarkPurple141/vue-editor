@@ -14,9 +14,9 @@ export default {
       file: String
    },
    components: { EditorSidebar, EditorTextarea },
-   data() {
-      return {
-         rows: 20
+   computed: {
+      rows() {
+         return this.file.split('\n').length + 1
       }
    }
 }

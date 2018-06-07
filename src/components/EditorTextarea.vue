@@ -1,8 +1,8 @@
 <template lang="html">
    <div class="text">
       <textarea
-         @input="commit"
-         @keydown.tab="tabhandler"
+         @input="commit_edit"
+         @keydown.tab="tab_handler"
          v-model="edit"
          class="editpad"
          :rows="rows" cols="80">
@@ -21,10 +21,10 @@ export default {
       rows: Number
    },
    methods: {
-      commit() {
+      commit_edit() {
          this.$store.commit('EDIT', this.edit)
       },
-      tabhandler(e) {
+      tab_handler(e) {
          e.preventDefault()
          //this.edit.append('')
          let index = e.target.selectionEnd

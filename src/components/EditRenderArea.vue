@@ -27,7 +27,7 @@ export default {
 
 .render {
    text-align: left;
-   padding: 10px;
+   margin: 20px;
 }
 
 </style>

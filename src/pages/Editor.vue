@@ -14,7 +14,7 @@ export default {
   },
   computed: {
      file() {
-        return this.$store.state.file
+        return this.$store.state.file.contents
      }
   }
 }
