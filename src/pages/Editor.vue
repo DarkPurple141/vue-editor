@@ -26,4 +26,5 @@ export default {
    flex-direction: row;
    min-height: 100vh;
 }
+
 </style>

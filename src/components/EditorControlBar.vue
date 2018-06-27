@@ -38,7 +38,7 @@ export default {
 
 <style lang="less" scoped>
 .nav {
-   background-color: #fafafa;
+   background-color: #f7f7f7;
    width: 100%;
    height: 60px;
    display: flex;

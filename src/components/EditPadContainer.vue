@@ -16,7 +16,7 @@ export default {
    components: { EditorSidebar, EditorTextarea },
    computed: {
       rows() {
-         return this.file.split('\n').length + 1
+         return this.file.split('\n').length
       }
    }
 }
@@ -28,4 +28,12 @@ export default {
    flex-direction: row;
    width: 100%;
 }
+
+@media screen and (orientation: portrait) {
+   .texteditor-frame {
+      overflow-y: scroll;
+      max-height: calc(60vh - 60px);
+   }
+}
+
 </style>

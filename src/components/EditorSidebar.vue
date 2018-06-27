@@ -18,11 +18,16 @@ export default {
    padding: 5px 0px;
    width: 50px;
    border-right: 1px solid #ddd;
-   height: 90vh;
+   height: 100%;
+   min-height: 92.5vh;
 }
 
 .line-number {
    color: #bbb;
+}
+
+@media screen and (orientation: portrait)  {
+
 }
 
 </style>

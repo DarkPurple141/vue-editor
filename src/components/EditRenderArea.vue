@@ -52,7 +52,7 @@ export default {
 }
 
 .console {
-   background: #bbb;
+   background: #222;
    color: white;
 }
 

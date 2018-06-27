@@ -8,6 +8,10 @@ export default new Vuex.Store({
      file: {
         contents: "",
         fname: ""
+     },
+     config: {
+        tabsize: 4,
+        fontsize: "12px"
      }
   },
   getters: {

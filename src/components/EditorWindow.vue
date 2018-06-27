@@ -45,4 +45,10 @@ export default {
    flex-direction: row;
    width: 100%;
 }
+
+@media screen and (orientation: portrait) {
+   .panes {
+      flex-direction: column;
+   }
+}
 </style>

@@ -20,4 +20,20 @@ export default {
 .pane:first-of-type {
    border-right: 1px solid #ddd;
 }
+
+@media screen and (orientation: portrait) {
+   .pane {
+      width: 100%;
+   }
+
+   .pane:first-of-type {
+      border-right: none;
+      border-bottom: 1px solid #ddd;
+      height: 60vh;
+   }
+
+   .pane:last-of-type {
+      height: 40vh;
+   }
+}
 </style>

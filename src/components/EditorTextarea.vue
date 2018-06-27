@@ -43,7 +43,7 @@ export default {
          //this.edit.append('')
          let index = e.target.selectionEnd
          this.edit =
-            this.edit.substring(0, index) + '    ' + this.edit.substring(index, this.length)
+            this.edit.substring(0, index) + '\t' + this.edit.substring(index, this.length)
          setTimeout(() => e.target.setSelectionRange(index+1, index+1), 0)
 
       }
@@ -62,6 +62,8 @@ export default {
    top: 0;
    left: 0;
    padding: 5px;
+   // make this reactive
+   tab-size: 4;
 }
 
 // needed to prevent selection of lower element
