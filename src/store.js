@@ -6,19 +6,28 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
      file: {
-        contents: ""
+        contents: "",
+        fname: ""
      }
   },
   getters: {
-    // eslint-disable-next-line
-    lines({ state }) {
-      // eslint-disable-next-line
+    lines({ file }) {
       return file.contents.split('\n').length
+    },
+    ftype({ file }) {
+      try {
+         return file.fname.split('.')[1] || 'md'
+      } catch (e) {
+         return 'md'
+      }
     }
   },
   mutations: {
-     EDIT(state, payload) {
-        state.file.contents = payload
+     EDIT({ file }, payload) {
+        file.contents = payload
+     },
+     FNAME({ file }, payload) {
+        file.fname = payload
      }
   },
   actions: {

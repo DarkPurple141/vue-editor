@@ -31,7 +31,7 @@ export default {
       rendered() {
          return {
             content: this.file,
-            ftype: 'md'
+            ftype: this.$store.getters.ftype
          }
       }
    }

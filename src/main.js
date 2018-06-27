@@ -5,6 +5,8 @@ import store from './store'
 
 Vue.config.productionTip = false
 
+import 'highlightjs/styles/default.css'
+
 new Vue({
   router,
   store,

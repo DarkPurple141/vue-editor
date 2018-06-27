@@ -1,17 +1,31 @@
 <template lang="html">
-   <div class="text">
-      <textarea
-         @input="commit_edit"
-         @keydown.tab="tab_handler"
-         v-model="edit"
-         class="editpad"
-         :rows="rows" cols="80">
-      </textarea>
+   <div class="root">
+      <!-- where edits take place -->
+      <div class="text edit">
+         <textarea
+            @input="commit_edit"
+            @keydown.tab.stop="tab_handler"
+            v-model="edit"
+            class="editpad"
+            :rows="rows" cols="80">
+         </textarea>
+      </div>
+      <!-- actual render area -->
+      <div class="text">
+         <EditRenderArea :file="{ content: edit, ftype: file_type }"/>
+      </div>
    </div>
+
 </template>
 
 <script>
+import EditRenderArea from './EditRenderArea'
+
 export default {
+
+   components: {
+      EditRenderArea
+   },
    data() {
       return {
          edit: ""
@@ -29,7 +43,14 @@ export default {
          //this.edit.append('')
          let index = e.target.selectionEnd
          this.edit =
-            this.edit.substring(0, index) + '   ' + this.edit.substring(index, this.length)
+            this.edit.substring(0, index) + '    ' + this.edit.substring(index, this.length)
+         setTimeout(() => e.target.setSelectionRange(index+1, index+1), 0)
+
+      }
+   },
+   computed: {
+      file_type() {
+         return this.$store.getters.ftype
       }
    }
 }
@@ -37,12 +58,27 @@ export default {
 
 <style lang="less" scoped>
 .text {
-   width: 100%;
+   position: absolute;
+   top: 0;
+   left: 0;
    padding: 5px;
+}
+
+// needed to prevent selection of lower element
+.edit {
+   z-index: 10;
+}
+
+.root {
+   position: relative;
+   width: 100%;
 }
 
 .editpad {
    /*margin-left: 10px;*/
+   font-family: monospace;
+   caret-color: black;
+   color: transparent;
    width: 100%;
    line-height: inherit;
    border: none;
@@ -50,5 +86,7 @@ export default {
    outline: none;
    min-height: 500px;
    resize: none;
+   background-color: transparent;
 }
+
 </style>

@@ -2,7 +2,12 @@
    <section class="nav">
       <nav class="nav-inner">
          <div class="nav-block file-name">
-            <input type="text" placeholder="Filename" class="file-name-input"/>
+            <input type="text"
+               v-model="fname"
+               placeholder="Filename"
+               class="file-name-input"
+               @change="fname_handler"
+            />
          </div>
          <div class="nav-block controls">
             <EditorControls/>
@@ -15,7 +20,19 @@
 import EditorControls from './EditorControls'
 
 export default {
-   components: { EditorControls }
+   components: { EditorControls },
+   data() {
+      return {
+         fname: ""
+      }
+   },
+   methods: {
+      fname_handler() {
+         console.log("fname HERE")
+         if (this.fname)
+            this.$store.commit('FNAME', this.fname)
+      }
+   }
 }
 </script>
 
