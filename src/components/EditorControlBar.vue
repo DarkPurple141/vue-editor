@@ -28,7 +28,6 @@ export default {
    },
    methods: {
       fname_handler() {
-         console.log("fname HERE")
          if (this.fname)
             this.$store.commit('FNAME', this.fname)
       }

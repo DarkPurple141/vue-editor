@@ -39,12 +39,13 @@ export default new Vuex.Store({
      }
   },
   actions: {
-     execute({ file, commit }) {
+     execute({ state, commit }) {
+        console.log("eval")
         try {
-           const output = eval(file.contents)
+           const output = eval(state.file.contents)
            commit('EVAL', output)
         } catch (e) {
-           commit('EVAL', e)
+           commit('EVAL', e.message)
         }
      }
   }

@@ -5,6 +5,7 @@
          <textarea
             @input="commit_edit"
             @keydown.tab.stop="tab_handler"
+            @keydown.shift.stop="exec"
             v-model="edit"
             class="editpad"
             :rows="rows" cols="80">
@@ -46,6 +47,9 @@ export default {
             this.edit.substring(0, index) + '\t' + this.edit.substring(index, this.length)
          setTimeout(() => e.target.setSelectionRange(index+1, index+1), 0)
 
+      },
+      exec() {
+         this.$store.dispatch('execute')
       }
    },
    computed: {
