@@ -1,10 +1,14 @@
 <template lang="html">
    <div class="console">
-      <div class="exec">
-         <button type="button" name="Run"
-         @click.prevent="$store.dispatch('execute')">Run</button>
+      <div v-if="$store.getters.ftype == 'js'">
+         <div class="exec">
+            <button type="button" name="Run"
+            @click.prevent="$store.dispatch('execute')">Run</button>
+         </div>
+         {{ script }}
       </div>
-      {{ script }}
+      <div v-html="html" v-else-if="$store.getters.ftype == 'html'" class="standard">
+      </div>
    </div>
 </template>
 
@@ -13,8 +17,11 @@ export default {
    computed: {
       script() {
          return this.$store.state.file.output || "Script output will appear here."
+      },
+      html() {
+         return this.$store.state.file.contents
       }
-   }
+   },
 }
 </script>
 

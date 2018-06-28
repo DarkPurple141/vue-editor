@@ -1,7 +1,7 @@
 <template lang="html">
    <div class="render">
-      <div v-if="file.ftype == 'md'" v-html="markdown">
-      </div>
+      <div class="plain" v-if="$store.getters.ftype == 'md'
+      || $store.getters.ftype == ''">{{ file.content }}</div>
       <div v-else>
          <div v-html="language">
          </div>
@@ -41,13 +41,16 @@ export default {
 
 <style lang="css" scoped>
 
+.plain {
+   tab-size: 4;
+}
+
 .render {
    text-align: left;
    cursor: text;
    font-size: inherit;
    user-select: text;
    pointer-events: none;
-   /*margin: 20px;*/
 }
 
 

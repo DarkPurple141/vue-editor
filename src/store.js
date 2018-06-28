@@ -3,9 +3,10 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-
+// eslint-disable-next-line
 const logger = console.log
 
+// eslint-disable-next-line
 console.log = function(value)
 {
     logger(value)
@@ -49,7 +50,6 @@ export default new Vuex.Store({
   },
   actions: {
      execute({ state, commit }) {
-        console.log("eval")
         try {
            const output = eval(state.file.contents)
            commit('EVAL', output)
