@@ -5,7 +5,6 @@
       <div v-else>
          <div v-html="language">
          </div>
-         <div class="console"></div>
       </div>
    </div>
 </template>
@@ -51,9 +50,5 @@ export default {
    /*margin: 20px;*/
 }
 
-.console {
-   background: #222;
-   color: white;
-}
 
 </style>

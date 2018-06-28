@@ -5,16 +5,16 @@
          <EditPadContainer :file="file" slot="main"/>
       </EditorPane>
       <EditorPane>
-         <EditRenderArea slot="main" :file="rendered"/>
+         <EditConsole slot="main"/>
       </EditorPane>
    </div>
 </template>
 
 <script>
-import EditorPane from './EditorPane.vue'
-import EditorControlBar from './EditorControlBar.vue'
-import EditPadContainer from './EditPadContainer.vue'
-import EditRenderArea from './EditRenderArea.vue'
+import EditorPane from './EditorPane'
+import EditorControlBar from './EditorControlBar'
+import EditPadContainer from './EditPadContainer'
+import EditConsole from './EditConsole'
 
 export default {
    name: 'EditorWindow',
@@ -22,18 +22,10 @@ export default {
       EditorPane,
       EditorControlBar,
       EditPadContainer,
-      EditRenderArea
+      EditConsole
    },
    props: {
       file: String
-   },
-   computed: {
-      rendered() {
-         return {
-            content: this.file,
-            ftype: this.$store.getters.ftype
-         }
-      }
    }
 }
 </script>

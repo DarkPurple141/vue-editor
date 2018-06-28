@@ -19,7 +19,7 @@ export default {
    width: 50px;
    border-right: 1px solid #ddd;
    height: 100%;
-   min-height: 92.5vh;
+   min-height: calc(100vh - 60px);
 }
 
 .line-number {

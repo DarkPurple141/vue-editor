@@ -7,7 +7,8 @@ export default new Vuex.Store({
   state: {
      file: {
         contents: "",
-        fname: ""
+        fname: "",
+        output: ""
      },
      config: {
         tabsize: 4,
@@ -32,9 +33,19 @@ export default new Vuex.Store({
      },
      FNAME({ file }, payload) {
         file.fname = payload
+     },
+     EVAL({ file }, payload) {
+        file.output = payload
      }
   },
   actions: {
-
+     execute({ file, commit }) {
+        try {
+           const output = eval(file.contents)
+           commit('EVAL', output)
+        } catch (e) {
+           commit('EVAL', e)
+        }
+     }
   }
 })
