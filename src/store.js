@@ -3,6 +3,15 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+
+const logger = console.log
+
+console.log = function(value)
+{
+    logger(value)
+    return value;
+}
+
 export default new Vuex.Store({
   state: {
      file: {
@@ -12,7 +21,7 @@ export default new Vuex.Store({
      },
      config: {
         tabsize: 4,
-        fontsize: "12px"
+        fontsize: "12px",
      }
   },
   getters: {

@@ -1,5 +1,9 @@
 <template lang="html">
    <div class="console">
+      <div class="exec">
+         <button type="button" name="Run"
+         @click.prevent="$store.dispatch('execute')">Run</button>
+      </div>
       {{ script }}
    </div>
 </template>
@@ -14,10 +18,41 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="css" scoped>
+
+.exec {
+   position: fixed;
+   right: 0px;
+   margin: 5px;
+}
+
+.exec button {
+   margin: 5px;
+   padding: 10px;
+   font-size: 16px;
+   box-shadow: 0px 17px 10px -10px rgba(0,0,0,0.4);
+   outline: none;
+   cursor: pointer;
+   transition: all 0.3s ease-in-out;
+}
+
+.exec button:hover {
+   transform: translate(0px, -5px) scale(1.1);
+   box-shadow: 0px 37px 20px -20px rgba(0,0,0,0.4);
+}
 
 .console {
+   background-color: grey;
+   color: white;
+   font-family: monospace;
    padding: 5px;
    text-align: left;
+   height: 100%;
+}
+
+@media screen and (orientation: portrait) {
+   .console {
+      height: 40vh;
+   }
 }
 </style>
