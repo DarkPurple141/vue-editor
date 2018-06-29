@@ -1,7 +1,7 @@
 <template lang="html">
    <div class="render">
-      <div class="plain" v-if="$store.getters.ftype == 'md'
-      || $store.getters.ftype == ''">{{ file.content }}</div>
+      <div class="plain"
+      v-if="plain">{{ file.content }}</div>
       <div v-else>
          <div v-html="language">
          </div>
@@ -11,6 +11,7 @@
 
 <script>
 import marked from 'marked'
+import { is_plain } from '@/helpers'
 import highlightjs from 'highlightjs'
 
 marked.setOptions({
@@ -34,7 +35,13 @@ export default {
          return marked(
             `\`\`\`${this.file.ftype}\n${this.file.content}\n\`\`\``
          )
+      },
+      plain() {
+         return is_plain(this.$store.getters.ftype)
       }
+   },
+   methods: {
+      is_plain
    }
 }
 </script>

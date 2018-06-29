@@ -31,9 +31,9 @@ export default new Vuex.Store({
     },
     ftype({ file }) {
       try {
-         return file.fname.split('.')[1] || 'md'
+         return file.fname.split('.')[1] || 'text'
       } catch (e) {
-         return 'md'
+         return 'text'
       }
     }
   },

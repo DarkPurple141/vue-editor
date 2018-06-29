@@ -1,4 +1,17 @@
 
-const is_plain = (ftype) => (!ftype || ftype == 'md' || ftype == 'txt')
+const is_plain = (ftype) => (!ftype || ftype == 'md' || ftype == 'txt' || ftype == 'text')
 
-export { is_plain }
+const language = (ftype) => {
+   switch (ftype) {
+      case 'js':
+         return 'Javascript'
+      case 'md':
+         return 'Markdown'
+      case 'html':
+         return 'HTML'
+      default:
+         return 'Text'
+   }
+}
+
+export { is_plain, language }

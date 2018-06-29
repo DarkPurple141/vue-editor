@@ -1,18 +1,32 @@
 <template lang="html">
-   <div class="console">
-      <div v-if="$store.getters.ftype == 'js'">
+   <div class="render-zone">
+      <div class="console" v-if="$store.getters.ftype == 'js'">
          <div class="exec">
             <button type="button" name="Run"
             @click.prevent="$store.dispatch('execute')">Run</button>
          </div>
          {{ script }}
       </div>
-      <div v-html="html" v-else-if="$store.getters.ftype == 'html'" class="standard">
+      <div v-else>
+         <StatusButton>
+            {{ status_text }}
+         </StatusButton>
+         <iframe :src="'data:text/html;charset=utf-8,'+html" class="standard html"
+            v-if="$store.getters.ftype == 'html'">
+         </iframe>
+         <div v-else class="markdown" v-html="markdown">
+         </div>
       </div>
+
    </div>
 </template>
 
 <script>
+
+import marked from 'marked'
+import StatusButton from './StatusButton'
+import { language } from '@/helpers'
+
 export default {
    computed: {
       script() {
@@ -20,8 +34,17 @@ export default {
       },
       html() {
          return this.$store.state.file.contents
+      },
+      markdown() {
+         return marked(this.$store.state.file.contents)
+      },
+      status_text() {
+         return language(this.$store.getters.ftype)
       }
    },
+   components: {
+      StatusButton
+   }
 }
 </script>
 
@@ -46,6 +69,20 @@ export default {
 .exec button:hover {
    transform: translate(0px, -5px) scale(1.1);
    box-shadow: 0px 37px 20px -20px rgba(0,0,0,0.4);
+}
+
+.markdown, .html {
+   padding: 5px;
+   text-align: left;
+   font-family: inherit;
+}
+
+iframe.standard {
+   width: 100%;
+   background-color: transparent;
+   border: 0px none transparent;
+   padding: 0px;
+   overflow: hidden;
 }
 
 .console {

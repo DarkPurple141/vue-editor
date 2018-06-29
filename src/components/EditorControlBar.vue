@@ -4,7 +4,8 @@
          <div class="nav-block file-name">
             <input type="text"
                v-model="fname"
-               placeholder="Filename"
+               spellcheck="false"
+               placeholder="filename.ext"
                class="file-name-input"
                @change="fname_handler"
             />
@@ -62,6 +63,7 @@ export default {
    padding: 5px;
    margin: auto;
    font-size: inherit;
+   max-width: 120px;
 }
 
 </style>
