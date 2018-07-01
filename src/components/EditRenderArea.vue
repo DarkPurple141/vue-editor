@@ -1,7 +1,6 @@
 <template lang="html">
    <div class="render">
-      <div class="plain"
-      v-if="plain">{{ file.content }}</div>
+      <div class="plain" v-if="plain">{{ file.content }}</div>
       <div v-else>
          <div v-html="language">
          </div>

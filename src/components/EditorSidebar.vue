@@ -18,8 +18,7 @@ export default {
    padding: 5px 0px;
    width: 50px;
    border-right: 1px solid #ddd;
-   height: 100%;
-   min-height: calc(100vh - 60px);
+   height: calc(100vh - 70px);
 }
 
 .line-number {
@@ -27,6 +26,9 @@ export default {
 }
 
 @media screen and (orientation: portrait)  {
+   .sidebar {
+      height: calc(60vh - 70px);
+   }
 
 }
 

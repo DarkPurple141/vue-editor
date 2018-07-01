@@ -94,13 +94,19 @@ export default {
    border: none;
    font-size: inherit;
    outline: none;
-   min-height: 500px;
+   min-height: calc(100vh - 80px);
    resize: none;
    background-color: transparent;
 }
 
 .plain {
    font-family: inherit;
+}
+
+@media screen and (orientation: portrait) {
+   .editpad {
+      min-height: calc(60vh - 80px);
+   }
 }
 
 </style>

@@ -1,5 +1,11 @@
-import EditorWindow from './EditorWindow.vue'
-import EditorPane   from './EditorPane.vue'
-import EditorControlBar from './EditorControlBar.vue'
+import EditorWindow from './EditorWindow'
+import EditorPane   from './EditorPane'
+import EditorControlBar from './EditorControlBar'
+import EditConsole from './EditConsole'
+import EditorTextarea from './EditorTextarea'
+import EditorSidebar from './EditorSidebar'
+import EditPadContainer from './EditPadContainer'
 
-export default { EditorPane, EditorWindow, EditorControlBar }
+export { EditConsole, EditorTextarea,
+   EditorPane, EditorWindow, EditorControlBar,
+   EditorSidebar, EditPadContainer }

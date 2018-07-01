@@ -14,8 +14,19 @@
          <iframe :src="'data:text/html;charset=utf-8,'+html" class="standard html"
             v-if="$store.getters.ftype == 'html'">
          </iframe>
-         <div v-else class="markdown" v-html="markdown">
+         <div v-else-if="$store.getters.ftype == 'md'" class="markdown" v-html="markdown">
          </div>
+         <div v-else class="text">
+            <h2>About</h2>
+            <p>This is a text editor! The left panel allows you to write code
+               with syntax highlighting support built in. Give it a try by changing
+               the filename. The default is plain text, but most languages are supported.
+               Otherwise the editor supports HTML, Markdown and JS execution in this panel.
+               Give it a whirl.</p>
+            <br>
+            <p>Source code <a href="https://editor.alhinds.com/">here</a>.</p>
+         </div>
+
       </div>
 
    </div>
@@ -50,8 +61,12 @@ export default {
 
 <style lang="css" scoped>
 
+.render-zone {
+   position: relative;
+}
+
 .exec {
-   position: fixed;
+   position: absolute;
    right: 0px;
    margin: 5px;
 }
@@ -77,6 +92,15 @@ export default {
    font-family: inherit;
 }
 
+.text {
+   margin: auto;
+   text-align: left;
+   font-family: inherit;
+   padding: 10px;
+   width: 80%;
+   line-height: 2;
+}
+
 iframe.standard {
    width: 100%;
    background-color: transparent;
@@ -91,7 +115,7 @@ iframe.standard {
    font-family: monospace;
    padding: 5px;
    text-align: left;
-   height: 100%;
+   height: calc(100vh - 10px);
 }
 
 @media screen and (orientation: portrait) {

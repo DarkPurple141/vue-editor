@@ -1,8 +1,20 @@
 <template>
   <div id="app">
-    <router-view/>
+     <!-- <router-view/> -->
+    <Editor/>
   </div>
 </template>
+
+<script type="text/javascript">
+import Editor from '@/pages/Editor'
+
+export default {
+   components: {
+      Editor
+   }
+}
+
+</script>
 
 <style lang="less">
 

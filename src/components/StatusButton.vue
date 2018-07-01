@@ -14,7 +14,7 @@ export default {
 <style lang="css" scoped>
 
 .status {
-   position: fixed;
+   position: absolute;
    right: 0px;
 }
 

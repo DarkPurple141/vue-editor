@@ -11,10 +11,8 @@
 </template>
 
 <script>
-import EditorPane from './EditorPane'
-import EditorControlBar from './EditorControlBar'
-import EditPadContainer from './EditPadContainer'
-import EditConsole from './EditConsole'
+import { EditorPane, EditorControlBar, EditPadContainer,
+   EditConsole } from '@/components'
 
 export default {
    name: 'EditorWindow',

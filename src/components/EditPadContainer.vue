@@ -6,8 +6,7 @@
 </template>
 
 <script>
-import EditorTextarea from './EditorTextarea'
-import EditorSidebar from './EditorSidebar'
+import { EditorTextarea, EditorSidebar } from '@/components'
 
 export default {
    props: {
@@ -24,6 +23,9 @@ export default {
 
 <style lang="less" scoped>
 .texteditor-frame {
+   // prevent scrolling of whole window
+   height: calc(100vh - 60px);
+   overflow-y: scroll;
    display: flex;
    flex-direction: row;
    width: 100%;
