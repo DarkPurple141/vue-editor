@@ -24,7 +24,7 @@
                Otherwise the editor supports HTML, Markdown and JS execution in this panel.
                Give it a whirl.</p>
             <br>
-            <p>Source code <a href="https://editor.alhinds.com/">here</a>.</p>
+            <p>Source code <a href="https://github.com/DarkPurple141/vue-editor">here</a>.</p>
          </div>
 
       </div>
@@ -121,6 +121,12 @@ iframe.standard {
 @media screen and (orientation: portrait) {
    .console {
       height: 40vh;
+   }
+}
+
+@media screen and (min-width: 1000px) {
+   .text {
+      font-size: 1.5em;
    }
 }
 </style>
